@@ -1164,6 +1164,13 @@ def init_db():
     conn.commit()
     conn.close()
 
+@app.route("/")
+def home():
+    return jsonify({
+        "status": "API do Decidiu funcionando",
+        "api_base": "/api"
+    })
+
 @app.route('/api/pacientes', methods=['GET', 'POST'])
 def pacientes():
     if request.method == 'GET':
